@@ -36,14 +36,12 @@ public class Task {
         return completed;
     }
 
-    public void isCompleted(boolean completed) {
+    public void setCompleted(boolean completed) {
         this.completed = completed;
-        String status = completed ? "✓ CONCLUÍDA" : "○ PENDENTE";
-        System.out.println(status);
     }
 
     public String toString() {
-        String status = completed ? "✓ CONCLUÍDA" : "○ PENDENTE";
+        String status = completed ? "✓ Concluida" : "○ Pendente";
         return "[" + id + "] Tarefa: " + nameTask + " | Prioridade: " + priority + " | Status: " + status;
     }
 }

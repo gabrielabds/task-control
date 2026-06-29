@@ -16,6 +16,7 @@ public class Main {
             System.out.println("4. Delete task ");
             System.out.print("Choose an option: ");
             int option = sc.nextInt();
+            sc.nextLine();
 
             switch (option) {
                 case 0 -> {
@@ -28,15 +29,21 @@ public class Main {
                     }
                 }
                 case 1 -> {
-                    sc.nextLine();
-                    System.out.print("Name task: ");
+                    System.out.print("Nome da tarefa: ");
                     String nameTask = sc.nextLine();
-                    System.out.print("Priority: ");
+                    System.out.print("Prioridade: ");
                     String priority = sc.nextLine();
                     manager.addTask(nameTask, priority, false);
                 }
                 case 2 -> {
                     manager.listTask();
+                }
+                case 3 -> {
+                    manager.listTask();
+                    System.out.println("Informe o id da tarefa que deseja concluir:");
+                    int id = sc.nextInt();
+                    sc.nextLine();
+                    manager.completeTask(id);
                 }
             }
 

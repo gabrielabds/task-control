@@ -1,4 +1,3 @@
-// Arquivo: GerenciadorTarefas.java
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,12 +7,10 @@ public class ManagerTask {
     private List<Task> tasks;
     private int nextId = 1;
 
-    // CONSTRUTOR
     public ManagerTask() {
         this.tasks = new ArrayList<>();
     }
 
-    // MÉTODO - adicionar tarefa
     public void addTask(String nameTask, String priority, boolean completed) {
         Task newTask = new Task(nextId, nameTask, priority, completed);
         tasks.add(newTask);
@@ -21,10 +18,9 @@ public class ManagerTask {
         System.out.println("✓ Tarefa adicionada com sucesso! \n");
     }
 
-    // MÉTODO - listar tarefa
     public void listTask() {
         if (tasks.isEmpty()) {
-            System.out.println("Nenhuma tarefa cadastrada.");
+            System.out.println("Nenhuma tarefa cadastrada.\n");
             return;
         }
         for (Task t : tasks) {
@@ -35,7 +31,7 @@ public class ManagerTask {
 
     public void completeTask(int id) {
         if (tasks.isEmpty()) {
-            System.out.println("Nenhuma tarefa cadastrada.");
+            System.out.println("Nenhuma tarefa cadastrada.\n");
             return;
         }
         for (Task t : tasks) {
@@ -47,6 +43,28 @@ public class ManagerTask {
         System.out.println("Tarefa não encontrada!");
     }
 
+    public void deleteTask(int id) {
+        Task saveTask = null;
+        if (tasks.isEmpty()) {
+            System.out.println("Nenhuma tarefa cadastrada.");
+            return;
+        }
+
+        for (Task t : tasks) {
+            if (id == t.getId()) {
+                saveTask = t;
+                break;
+            }
+        }
+        if (saveTask != null){
+            tasks.remove(saveTask);
+            System.out.println("✓ Tarefa removida");
+        }else{
+            System.out.println("Tarefa não encontrada!");
+        }
+
+
+    }
 }
 
 
